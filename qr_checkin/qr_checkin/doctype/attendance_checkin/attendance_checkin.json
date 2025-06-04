@@ -1,13 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-31 20:54:05.631564",
+ "creation": "2025-05-31 22:21:08.937603",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "member_id",
   "token",
-  "column_break_vatw",
   "checkin_time",
   "qr_session"
  ],
@@ -15,38 +15,29 @@
   {
    "fieldname": "member_id",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Member ID",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_vatw",
-   "fieldtype": "Column Break"
+   "label": "Member ID"
   },
   {
    "fieldname": "token",
    "fieldtype": "Data",
-   "label": "Token",
-   "reqd": 1
+   "label": "Token"
   },
   {
    "fieldname": "checkin_time",
    "fieldtype": "Datetime",
-   "label": "Check-In Time",
-   "reqd": 1
+   "label": "Check-in Time"
   },
   {
    "fieldname": "qr_session",
    "fieldtype": "Link",
-   "label": "Qr CHeckin Session",
-   "options": "QR CheckIn Session",
-   "reqd": 1
+   "label": "QR Session",
+   "options": "QR CheckIn Session"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-31 21:01:52.908460",
+ "modified": "2025-05-31 22:21:08.937603",
  "modified_by": "Administrator",
  "module": "Qr Checkin",
  "name": "Attendance CheckIn",
@@ -61,6 +52,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
    "share": 1,
    "write": 1
   }
