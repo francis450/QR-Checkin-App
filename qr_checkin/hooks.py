@@ -64,6 +64,11 @@ app_license = "mit"
 # 	"Role": "home_page"
 # }
 
+website_route_rules = [
+    {"from_route": "/checkin", "to_route": "qr_checkin.html"},
+    {"from_route": "/checkin/member", "to_route": "checkin_member.html"}
+]
+
 # Generators
 # ----------
 
