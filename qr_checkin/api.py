@@ -68,6 +68,13 @@ def validate_qr_token(token):
         if get_datetime(session.expiry) < now_datetime():
             return {"status": "error", "message": "Token has expired"}
         
+        # Mark the session as used
+        qr_session_doc = frappe.get_doc("QR CheckIn Session", session.name)
+        qr_session_doc.is_used = 1
+        qr_session_doc.save(ignore_permissions=True)
+        frappe.db.commit()
+
+        
         return {"status": "success", "token": token}
     except Exception as e:
         frappe.log_error(f"Error in validate_qr_token: {str(e)}", "QR CheckIn Error")
