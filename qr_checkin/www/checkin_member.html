@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-In Verification</title>
+    <link rel="stylesheet" href="/assets/qr_checkin/css/checkin_member.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Check-In Verification</h2>
+        <div id="member-id-section">
+            <input type="text" id="member-id" placeholder="Enter Member ID">
+            <button onclick="submitMemberId()">Submit</button>
+        </div>
+        <div id="otp-section">
+            <input type="text" id="otp" placeholder="Enter OTP">
+            <button onclick="submitOTP()">Verify OTP</button>
+        </div>
+        <div id="error-message"></div>
+        <div id="success-message"></div>
+    </div>
+
+    <script src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/qr_checkin/js/checkin_member.js"></script>
+</body>
+</html>
