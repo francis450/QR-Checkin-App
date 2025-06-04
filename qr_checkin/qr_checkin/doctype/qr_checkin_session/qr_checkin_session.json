@@ -1,34 +1,26 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-31 20:43:21.698389",
+ "creation": "2025-05-31 22:15:28.071874",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "token",
   "expiry",
-  "column_break_pkzn",
   "is_used"
  ],
  "fields": [
   {
    "fieldname": "token",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Token",
-   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "expiry",
    "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Expiry",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_pkzn",
-   "fieldtype": "Column Break"
+   "label": "Expiry"
   },
   {
    "default": "0",
@@ -40,7 +32,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-31 20:47:30.955247",
+ "modified": "2025-05-31 22:15:28.071874",
  "modified_by": "Administrator",
  "module": "Qr Checkin",
  "name": "QR CheckIn Session",
@@ -59,13 +51,16 @@
    "write": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Guest",
-   "share": 1
+   "share": 1,
+   "write": 1
   }
  ],
  "row_format": "Dynamic",

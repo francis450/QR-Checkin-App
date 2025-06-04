@@ -1,14 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-31 20:49:55.216386",
+ "creation": "2025-05-31 22:21:08.182112",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "member_id",
   "otp",
   "token",
-  "column_break_tkgw",
   "expiry",
   "attempts",
   "is_used"
@@ -17,34 +17,22 @@
   {
    "fieldname": "member_id",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Member ID",
-   "reqd": 1
+   "label": "Member ID"
   },
   {
    "fieldname": "otp",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "OTP",
-   "reqd": 1
+   "label": "OTP"
   },
   {
    "fieldname": "token",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Token",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_tkgw",
-   "fieldtype": "Column Break"
+   "label": "Token"
   },
   {
    "fieldname": "expiry",
    "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Expiry",
-   "reqd": 1
+   "label": "Expiry"
   },
   {
    "default": "0",
@@ -62,7 +50,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-31 20:53:31.013654",
+ "modified": "2025-05-31 22:21:08.182112",
  "modified_by": "Administrator",
  "module": "Qr Checkin",
  "name": "OTP Record",
@@ -81,13 +69,16 @@
    "write": 1
   },
   {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Guest",
-   "share": 1
+   "share": 1,
+   "write": 1
   }
  ],
  "row_format": "Dynamic",
