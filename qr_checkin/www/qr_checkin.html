@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Check-In</title>
-    <link rel="stylesheet" href="/assets/qr_checkin/css/qr_checkin.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h2>Scan to Check In</h2>
-        <img id="qr-image" src="" alt="QR Code">
-        <div id="countdown"></div>
-        <div id="error-message"></div>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Scan to Check In</h2>
+        <div class="flex justify-center">
+            <img id="qr-image" src="" alt="QR Code" class="w-64 h-64 transition-opacity duration-300">
+        </div>
+        <div id="countdown" class="text-lg text-gray-600 mt-4"></div>
+        <div id="error-message" class="text-red-500 mt-2 hidden"></div>
+        <div id="loading" class="hidden mt-4">
+            <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+        </div>
     </div>
     <script src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
     <script src="/assets/qr_checkin/js/qr_checkin.js"></script>
