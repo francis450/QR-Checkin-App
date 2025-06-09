@@ -1,75 +1,112 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-05-31 22:21:08.937603",
- "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "member_id",
-  "token",
-  "checkin_time",
-  "qr_session"
- ],
- "fields": [
-  {
-   "fieldname": "member_id",
-   "fieldtype": "Data",
-   "label": "Member ID"
-  },
-  {
-   "fieldname": "token",
-   "fieldtype": "Data",
-   "label": "Token"
-  },
-  {
-   "fieldname": "checkin_time",
-   "fieldtype": "Datetime",
-   "label": "Check-in Time"
-  },
-  {
-   "fieldname": "qr_session",
-   "fieldtype": "Link",
-   "label": "QR Session",
-   "options": "QR CheckIn Session"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-05-31 22:21:08.937603",
- "modified_by": "Administrator",
- "module": "Qr Checkin",
- "name": "Attendance CheckIn",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Guest",
-   "share": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-05-31 22:21:08.937603",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "member_id",
+        "qr_session",
+        "column_break_1",
+        "token",
+        "checkin_time",
+        "section_break_status",
+        "status",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "member_id",
+            "fieldtype": "Link",
+            "label": "Member",
+            "options": "Member",
+            "reqd": 1,
+            "in_list_view": 1,
+            "search_index": 1
+        },
+        {
+            "fieldname": "qr_session",
+            "fieldtype": "Link",
+            "label": "QR Session",
+            "options": "QR CheckIn Session",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "token",
+            "fieldtype": "Data",
+            "label": "Session Token",
+            "read_only": 1,
+            "no_copy": 1
+        },
+        {
+            "fieldname": "checkin_time",
+            "fieldtype": "Datetime",
+            "label": "Check-in Time",
+            "default": "now",
+            "read_only": 1,
+            "in_list_view": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_status",
+            "fieldtype": "Section Break",
+            "label": "Status Information"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Present\nLate\nAbsent",
+            "default": "Present",
+            "in_list_view": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-05-31 22:21:08.937603",
+    "modified_by": "Administrator",
+    "module": "Qr Checkin",
+    "name": "Attendance CheckIn",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Guest",
+            "share": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "checkin_time",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "member_id"
 }
