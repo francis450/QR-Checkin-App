@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-In Verification</title>
     <link rel="stylesheet" href="/assets/qr_checkin/css/checkin_member.css">
 </head>
+
 <body>
     <div class="container">
         <h2>Check-In Verification</h2>
@@ -20,8 +22,12 @@
         <div id="error-message"></div>
         <div id="success-message"></div>
     </div>
-
+    <script>
+        csrf_token = "{{ frappe.session.csrf_token }}";
+        console.log("Session: ", csrf_token)
+    </script>
     <script src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
     <script src="/assets/qr_checkin/js/checkin_member.js"></script>
 </body>
+
 </html>
