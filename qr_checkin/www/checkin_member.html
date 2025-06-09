@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-In Verification</title>
-    <link rel="stylesheet" href="/assets/qr_checkin/css/checkin_member.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body>
-    <div class="container">
-        <h2>Check-In Verification</h2>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Check-In Verification</h2>
         <div id="member-id-section">
-            <input type="text" id="member-id" placeholder="Enter Member ID">
-            <button onclick="submitMemberId()">Submit</button>
+            <input type="text" id="member-id" placeholder="Enter Member ID" class="w-full p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button onclick="submitMemberId()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">Submit</button>
         </div>
-        <div id="otp-section">
-            <input type="text" id="otp" placeholder="Enter OTP">
-            <button onclick="submitOTP()">Verify OTP</button>
+        <div id="otp-section" class="hidden">
+            <input type="text" id="otp" placeholder="Enter OTP" class="w-full p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button onclick="submitOTP()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">Verify OTP</button>
         </div>
-        <div id="error-message"></div>
-        <div id="success-message"></div>
+        <div id="error-message" class="text-red-500 mt-2 hidden"></div>
+        <div id="success-message" class="text-green-500 mt-2 hidden"></div>
+        <div id="loading" class="hidden mt-4">
+            <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+        </div>
     </div>
     <script>
         csrf_token = "{{ frappe.session.csrf_token }}";
-        console.log("Session: ", csrf_token)
+        console.log("Session: ", csrf_token);
     </script>
     <script src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
     <script src="/assets/qr_checkin/js/checkin_member.js"></script>
 </body>
-
 </html>
