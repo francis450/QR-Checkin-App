@@ -19,7 +19,7 @@ The QR Code Attendance Check-In App is a Frappe framework-based application that
    ```
 2. Get the app:
    ```bash
-   bench get-app qr_checkin
+   bench get-app https://github.com/francis450/QR-Checkin-App.git
    ```
 3. Install the app on your site:
    ```bash
