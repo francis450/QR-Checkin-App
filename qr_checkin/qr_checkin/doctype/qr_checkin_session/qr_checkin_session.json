@@ -1,70 +1,201 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2025-05-31 22:15:28.071874",
- "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "token",
-  "expiry",
-  "is_used"
- ],
- "fields": [
-  {
-   "fieldname": "token",
-   "fieldtype": "Data",
-   "label": "Token",
-   "unique": 1
-  },
-  {
-   "fieldname": "expiry",
-   "fieldtype": "Datetime",
-   "label": "Expiry"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_used",
-   "fieldtype": "Check",
-   "label": "Is Used"
-  }
- ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-05-31 22:15:28.071874",
- "modified_by": "Administrator",
- "module": "Qr Checkin",
- "name": "QR CheckIn Session",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Guest",
-   "share": 1,
-   "write": 1
-  }
- ],
- "row_format": "Dynamic",
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-05-31 22:15:28.071874",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "session_name",
+        "token",
+        "column_break_1",
+        "created_by",
+        "created_at",
+        "section_break_timing",
+        "start_time",
+        "expiry",
+        "column_break_2",
+        "duration_minutes",
+        "auto_expire",
+        "section_break_status",
+        "is_active",
+        "is_used",
+        "column_break_3",
+        "total_checkins",
+        "last_checkin_at",
+        "section_break_settings",
+        "allow_late_checkin",
+        "late_threshold_minutes",
+        "description"
+    ],
+    "fields": [
+        {
+            "fieldname": "session_name",
+            "fieldtype": "Data",
+            "label": "Session Name",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Descriptive name for this check-in session"
+        },
+        {
+            "fieldname": "token",
+            "fieldtype": "Data",
+            "label": "Token",
+            "unique": 1,
+            "reqd": 1,
+            "read_only": 1,
+            "no_copy": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "default": "__user",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_at",
+            "fieldtype": "Datetime",
+            "label": "Created At",
+            "default": "now",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_timing",
+            "fieldtype": "Section Break",
+            "label": "Timing Settings"
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Datetime",
+            "label": "Start Time",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "expiry",
+            "fieldtype": "Datetime",
+            "label": "Expiry Time",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "duration_minutes",
+            "fieldtype": "Int",
+            "label": "Duration (Minutes)",
+            "default": "60",
+            "description": "How long the session remains active"
+        },
+        {
+            "fieldname": "auto_expire",
+            "fieldtype": "Check",
+            "label": "Auto Expire",
+            "default": "1",
+            "description": "Automatically expire session after duration"
+        },
+        {
+            "fieldname": "section_break_status",
+            "fieldtype": "Section Break",
+            "label": "Status Information"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": "1",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "is_used",
+            "fieldtype": "Check",
+            "label": "Has Check-ins",
+            "default": "0",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_checkins",
+            "fieldtype": "Int",
+            "label": "Total Check-ins",
+            "default": "0",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "last_checkin_at",
+            "fieldtype": "Datetime",
+            "label": "Last Check-in At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_settings",
+            "fieldtype": "Section Break",
+            "label": "Additional Settings"
+        },
+        {
+            "fieldname": "allow_late_checkin",
+            "fieldtype": "Check",
+            "label": "Allow Late Check-in",
+            "default": "1"
+        },
+        {
+            "fieldname": "late_threshold_minutes",
+            "fieldtype": "Int",
+            "label": "Late Threshold (Minutes)",
+            "default": "15",
+            "depends_on": "allow_late_checkin"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "Description",
+            "description": "Additional details about this session"
+        }
+    ],
+    "grid_page_length": 50,
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-05-31 22:15:28.071874",
+    "modified_by": "Administrator",
+    "module": "Qr Checkin",
+    "name": "QR CheckIn Session",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "read": 1,
+            "role": "Guest",
+            "write": 1
+        }
+    ],
+    "row_format": "Dynamic",
+    "sort_field": "start_time",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "session_name"
 }
